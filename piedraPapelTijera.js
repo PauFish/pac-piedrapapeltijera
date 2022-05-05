@@ -20,19 +20,7 @@ function evaluarTodo() {
 
 function evaluarNombre() {
     var nombreUsuario = document.getElementsByName("nombre")[0].value;
-    if (nombreUsuario.length < 4 || isNaN(nombreUsuario[0]) == false) {
-        document.getElementsByName("nombre")[0].classList.add("fondoRojo");
-    } else if (isNaN(nombreUsuario[0]) == true) {
-        document.getElementsByName("nombre")[0].classList.remove("fondoRojo");
-        document.getElementsByName("nombre")[0].disabled = true;
-        return true;
-    }
-    return false;
-}
-
-function evaluarJuego() {
-    var numeroPartidas = document.getElementsByName("partidas")[0];
-    var partidasIntroducidas = numeroPartidas.value;
+    if (nombreUsuario.length < 4 || is
     if (partidasIntroducidas <= 0) {
         numeroPartidas.classList.add("fondoRojo");
         return true;
@@ -50,19 +38,7 @@ var imagenesJugador = divJugador.getElementsByTagName("img");
 
 /*al seleccionar ppt*/
 for (var i = 0; i < posibilidades.length ; i++) {
-    imagenesJugador[i].src = "img/" + posibilidades[i] + "Jugador.png";
-}
-
-function seleccionarOpcion(posicion){
-    for (var i = 0; i < imagenesJugador.length ; i++) {
-        imagenesJugador[i].classList.add("noSeleccionado");
-        imagenesJugador[i].classList.remove("seleccionado");
-        if(i == posicion){
-            imagenesJugador[i].classList.add("seleccionado");
-            imagenesJugador[i].classList.remove("noSeleccionado");
-            seleccionJugador=posicion;
-        }
-}
+    imagenesJugador[i].src = "img/" + posi
 }
 imagenesJugador[0].addEventListener("click",  function(){seleccionarOpcion(0);});
 imagenesJugador[1].addEventListener("click",  function(){seleccionarOpcion(1);});
@@ -70,23 +46,7 @@ imagenesJugador[2].addEventListener("click",  function(){seleccionarOpcion(2);})
 
 /*boton ya*/
 
-function botonYa() {
-    seleccionMaquina();
-    aumentarValor();
-    Gana();
-}
-
-function seleccionMaquina() {
-    var seleccionMaquina = Math.floor(Math.random() * posibilidades.length);
-var divMaquina = document.getElementById("maquina");
-var imagenesMaquina = divMaquina.getElementsByTagName("img");
-imagenesMaquina[0].src = "img/"+ posibilidades[seleccionMaquina]+"Ordenador.png";
-seleccionOrdenador= seleccionMaquina;
-}
-
-var numeroDeJuegos = 0
-function aumentarValor() {
-    if (numeroDeJuegos < document.getElementsByName("partidas")[0].value) {
+function botonYa() {getElementsByName("partidas")[0].value) {
         numeroDeJuegos = numeroDeJuegos + 1;
         document.getElementById("actual").innerHTML = numeroDeJuegos;
     } else {
